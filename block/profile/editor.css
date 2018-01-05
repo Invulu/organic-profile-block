@@ -1,22 +1,23 @@
 /**
  * ----------------------------------------------------------------------------
- * #.# Editor CSS
- *
- * BLOCK: 03-block-editable block CSS for the editor.
+ * Editor CSS
  * ----------------------------------------------------------------------------
  */
 
-.components-button.components-icon-button {
-	background-color: #ffffff;
+.wp-block-organic-profile-block ul,
+.wp-block-organic-profile-block li {
+	list-style: none;
+	margin: 0; padding: 0;
 }
 .wp-block-organic-profile-block {
 	display: flex;
 	align-items: stretch;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
 }
 .wp-block-organic-profile-block .organic-profile-image {
 	display: flex;
 	align-items: center;
-	margin-right: 18px;
 }
 .wp-block-organic-profile-block .organic-profile-image.image-inactive {
 	background: #f4f4f4;
@@ -26,18 +27,11 @@
 .wp-block-organic-profile-block .organic-profile-image.image-active {
 	background-size: cover;
 	background-position: center;
-}
-.wp-block-organic-profile-block ul,
-.wp-block-organic-profile-block li {
-	list-style: none;
-	margin: 0; padding: 0;
+	max-width: 40%;
 }
 .wp-block-organic-profile-block .organic-profile-image button {
 	margin: 0 auto;
 }
-/* .wp-block-organic-profile-block .organic-profile-image button.components-button {
-	width: 40%;
-} */
 .wp-block-organic-profile-block .organic-profile-image button.image-button {
 	line-height: 0;
 	padding: 0px;
@@ -45,47 +39,23 @@
 .wp-block-organic-profile-block .organic-profile-image button.image-button img {
 	opacity: 0;
 }
-
-.wp-block-organic-profile-block .organic-profile-social-icons li a {
-	display: block;
-	background: #f4f4f4;
-	color: #999999;
-	text-align: center;
-	text-decoration: none;
-	line-height: 36px;
-	min-width: 36px;
-	margin: 0px;
-	padding: 0px;
+.wp-block-organic-profile-block .organic-profile-content {
+	width: 60%;
+	align-self: center;
+	padding: 18px;
+	box-sizing: border-box;
 }
-.wp-block-organic-profile-block .organic-profile-social-icons li a:hover {
-	color: #333333;
+.wp-block-organic-profile-block .organic-profile-social {
+	margin-top: 12px;
 }
-.wp-block-organic-profile-block .organic-profile-social-icons li a::before {
-	font-family: 'FontAwesome';
-	font-size: 16px;
-	font-weight: normal;
-	content: '\f0c1';
+.wp-block-organic-profile-block .organic-profile-social .social-link {
+	color: rgba(0, 0, 0, 0.24);
+	padding: 6px 12px;
+	border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
-.wp-block-organic-profile-block .organic-profile-social-icons li a span {
-	display: none;
+.wp-block-organic-profile-block .organic-profile-social .social-link:hover {
+	color: rgba(0, 0, 0, 1);
 }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="facebook.com"]::before		{ content: '\f09a'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="twitter.com"]::before 		{ content: '\f099'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="plus.google.com"]::before 	{ content: '\f0d5'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="linkedin.com"]::before	 	{ content: '\f0e1'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="github.com"]::before		 	{ content: '\f113'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="dribbble.com"]::before		{ content: '\f17d'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="foursquare.com"]::before		{ content: '\f180'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="pinterest.com"]::before		{ content: '\f0d2'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="wordpress.com"]::before		{ content: '\f19a'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="youtube.com"]::before			{ content: '\f16a'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="vine.co"]::before				{ content: '\f1ca'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="instagram.com"]::before		{ content: '\f16d'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="stackexchange.com"]::before	{ content: '\f18d'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="spotify.com"]::before			{ content: '\f1bc'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="amazon.com"]::before			{ content: '\f270'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="flickr.com"]::before			{ content: '\f16e'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="vimeo.com"]::before			{ content: '\f27d'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="yelp.com"]::before			{ content: '\f1e9'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href*="mailto:"]::before				{ content: '\f0e0'; }
-.wp-block-organic-profile-block .organic-profile-social-icons li a[href$="/feed/"]::before				{ content: '\f09e'; }
+.wp-block-organic-profile-block .organic-profile-social .social-link:first-child {
+	border: none;
+}
