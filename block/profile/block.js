@@ -26,12 +26,12 @@
 			title: {
 				type: 'array',
 				source: 'children',
-				selector: 'h2',
+				selector: 'h3',
 			},
 			subtitle: {
 				type: 'array',
 				source: 'children',
-				selector: 'h4',
+				selector: 'h5',
 			},
 			bio: {
 				type: 'array',
@@ -204,15 +204,11 @@
 						),
 					),
 					el( 'div', {
-						className: 'organic-profile-content',
-						style: { textAlign: alignment },
-						onChange: onChangeAlignment,
-					},
+						className: 'organic-profile-content', style: { textAlign: alignment } },
 						el( blocks.Editable, {
-							tagName: 'h2',
+							tagName: 'h3',
 							inline: false,
 							placeholder: i18n.__( 'Profile Name' ),
-							// style: { textAlign: attributes.alignment },
 							value: attributes.title,
 							onChange: function( newTitle ) {
 								props.setAttributes( { title: newTitle } );
@@ -223,10 +219,9 @@
 							},
 						} ),
 						el( blocks.Editable, {
-							tagName: 'h4',
+							tagName: 'h5',
 							inline: false,
 							placeholder: i18n.__( 'Subtitle' ),
-							// style: { textAlign: attributes.alignment },
 							value: attributes.subtitle,
 							onChange: function( newSubtitle ) {
 								props.setAttributes( { subtitle: newSubtitle } );
@@ -240,7 +235,6 @@
 							tagName: 'p',
 							inline: true,
 							placeholder: i18n.__( 'Write a brief bio...' ),
-							// style: { textAlign: attributes.alignment },
 							value: attributes.bio,
 							onChange: function( newBio ) {
 								props.setAttributes( { bio: newBio } );
@@ -299,16 +293,7 @@
 
 		save: function( props ) {
 			var attributes = props.attributes;
-			// var alignment = props.attributes.alignment;
-			// var facebookURL = props.attributes.facebookURL;
-			// var twitterURL = props.attributes.twitterURL;
-			// var instagramURL = props.attributes.instagramURL;
-			// var linkedURL = props.attributes.linkedURL;
-			// var emailAddress = props.attributes.emailAddress;
-
-			// function onChangeAlignment( newAlignment ) {
-			// 	props.setAttributes( { alignment: newAlignment } );
-			// }
+			var alignment = props.attributes.alignment;
 
 			return (
 				el( 'div', { className: props.className },
@@ -316,10 +301,10 @@
 					el( 'div', { className: 'organic-profile-image', style: { backgroundImage: 'url('+attributes.mediaURL+')' } },
 						el( 'img', { src: attributes.mediaURL } ),
 					),
-					el( 'div', { className: 'organic-profile-content' },
-						el( 'h2', {}, attributes.title ),
-						attributes.subtitle && el( 'h4', {}, attributes.subtitle ),
-						attributes.bio && el( 'p', { className: 'bio' }, attributes.bio ),
+					el( 'div', { className: 'organic-profile-content', style: { textAlign: attributes.alignment } },
+						el( 'h3', {}, attributes.title ),
+						attributes.subtitle && el( 'h5', {}, attributes.subtitle ),
+						attributes.bio && el( 'p', {}, attributes.bio ),
 						el( 'div', { className: 'organic-profile-social' },
 							attributes.facebookURL &&
 							el( 'a', {

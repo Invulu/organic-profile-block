@@ -4,9 +4,56 @@
  * ----------------------------------------------------------------------------
  */
 
-.wp-block-gb-block-editable-03 {
-	color: #000000;
-	background: azure;
-	border: 0.2rem solid midnightblue;
-	padding: 2rem;
+.wp-block-organic-profile-block ul,
+.wp-block-organic-profile-block li {
+	list-style: none;
+	margin: 0; padding: 0;
+}
+.wp-block-organic-profile-block {
+	display: flex;
+	align-items: stretch;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+}
+.wp-block-organic-profile-block .organic-profile-image {
+	display: flex;
+	align-items: center;
+	background-size: cover;
+	background-position: center;
+	width: 60%;
+}
+.wp-block-organic-profile-block .organic-profile-image img {
+	opacity: 0;
+	margin: -9999px;
+}
+.wp-block-organic-profile-block .organic-profile-content {
+	width: 100%;
+	align-self: center;
+	padding: 18px;
+	box-sizing: border-box;
+}
+.wp-block-organic-profile-block .organic-profile-content h3,
+.wp-block-organic-profile-block .organic-profile-content h5 {
+	margin: 0px;
+	padding: 0px;
+}
+.wp-block-organic-profile-block .organic-profile-content p {
+	padding-bottom: 0px;
+}
+.wp-block-organic-profile-block .organic-profile-social {
+	padding-top: 12px;
+}
+.wp-block-organic-profile-block .organic-profile-social:empty {
+	display: none;
+}
+.wp-block-organic-profile-block .organic-profile-social .social-link {
+	color: rgba(0, 0, 0, 0.24);
+	padding: 6px 12px;
+	border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+.wp-block-organic-profile-block .organic-profile-social .social-link:hover {
+	color: rgba(0, 0, 0, 1);
+}
+.wp-block-organic-profile-block .organic-profile-social .social-link:first-child {
+	border: none;
 }
