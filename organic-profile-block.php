@@ -40,6 +40,6 @@ if ( ! defined( 'OPB_URL' ) ) {
 }
 
 /**
- * BLOCK: Slider Block.
+ * BLOCK: Profile Block.
  */
 require_once( OPB_DIR . '/block/profile/index.php' );

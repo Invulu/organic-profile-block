@@ -1,4 +1,4 @@
-( function( blocks, i18n, element, _ ) {
+( function( blocks, i18n, element ) {
 	var el = element.createElement;
 	var children = blocks.source.children;
 	var attr = blocks.source.attr;
@@ -9,17 +9,8 @@
 	var TextControl = wp.blocks.InspectorControls.TextControl;
 	var SelectControl = wp.blocks.InspectorControls.SelectControl;
 
-	function customIcon() {
-		return (
-			el( 'svg', { className: 'organic-icon', width: 20, height: 20, viewBox: '0 0 20 20' },
-				el( 'path', { d: "M11 10.977q0 0.937-0.57 1.48t-1.516 0.543h-6.828q-0.945 0-1.516-0.543t-0.57-1.48q0-0.414 0.027-0.809t0.109-0.852 0.207-0.848 0.336-0.762 0.484-0.633 0.668-0.418 0.871-0.156q0.070 0 0.328 0.168t0.582 0.375 0.844 0.375 1.043 0.168 1.043-0.168 0.844-0.375 0.582-0.375 0.328-0.168q0.477 0 0.871 0.156t0.668 0.418 0.484 0.633 0.336 0.762 0.207 0.848 0.109 0.852 0.027 0.809zM8.5 4q0 1.242-0.879 2.121t-2.121 0.879-2.121-0.879-0.879-2.121 0.879-2.121 2.121-0.879 2.121 0.879 0.879 2.121z" } )
-			)
-		)
-	}
-
 	blocks.registerBlockType( 'organic/profile-block', {
 		title: i18n.__( 'Profile' ),
-		// icon: customIcon,
 		icon: 'businessman',
 		category: 'common',
 		attributes: {
@@ -357,5 +348,4 @@
 	window.wp.blocks,
 	window.wp.i18n,
 	window.wp.element,
-	window._,
 );
