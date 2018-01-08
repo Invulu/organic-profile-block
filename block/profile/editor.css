@@ -38,6 +38,7 @@
 }
 .wp-block-organic-profile-block .organic-profile-image button.image-button img {
 	opacity: 0;
+	margin: 0;
 }
 .wp-block-organic-profile-block .organic-profile-content {
 	width: 60%;

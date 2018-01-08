@@ -13,9 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Hook: Editor assets.
-add_action( 'enqueue_block_editor_assets', 'organic_profile_block_editor_assets' );
-
 /**
  * Enqueue the block's assets for the editor.
  *
@@ -41,15 +38,10 @@ function organic_profile_block_editor_assets() {
 		array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
 		filemtime( plugin_dir_path( __FILE__ ) . 'editor.css' ) // filemtime — Gets file modification time.
 	);
-	wp_enqueue_style(
-		'organic-profile-block-fontawesome', // Font Awesome for social media icons.
-		plugins_url( 'font-awesome.css', __FILE__ )
-	);
 } // End function organic_profile_block_editor_assets().
 
-
-// Hook: Frontend assets.
-add_action( 'enqueue_block_assets', 'organic_profile_block_block_assets' );
+// Hook: Editor assets.
+add_action( 'enqueue_block_editor_assets', 'organic_profile_block_editor_assets' );
 
 /**
  * Enqueue the block's assets for the frontend.
@@ -65,7 +57,10 @@ function organic_profile_block_block_assets() {
 		filemtime( plugin_dir_path( __FILE__ ) . 'style.css' ) // filemtime — Gets file modification time.
 	);
 	wp_enqueue_style(
-		'organic-profile-block-fontawesome', // Font Awesome for social media icons.
-		plugins_url( 'font-awesome.css', __FILE__ )
+		'organic-profile-block-fontawesome', // Handle.
+		plugins_url( 'font-awesome.css', __FILE__ ) // Font Awesome for social media icons.
 	);
 } // End function organic_profile_block_block_assets().
+
+// Hook: Frontend assets.
+add_action( 'enqueue_block_assets', 'organic_profile_block_block_assets' );
