@@ -6,13 +6,12 @@
 	var MediaUploadButton = wp.blocks.MediaUploadButton;
 	var InspectorControls = wp.blocks.InspectorControls;
 	var TextControl = wp.blocks.InspectorControls.TextControl;
-	var SelectControl = wp.blocks.InspectorControls.SelectControl;
 
-	blocks.registerBlockType( 'organic/profile-block', {
-		title: i18n.__( 'Profile' ),
-		icon: 'businessman',
-		category: 'common',
-		attributes: {
+	blocks.registerBlockType( 'organic/profile-block', { // The name of our block. Must be a string with prefix. Example: my-plugin/my-custom-block.
+		title: i18n.__( 'Profile' ), // The title of our block.
+		icon: 'businessman', // Dashicon icon for our block. Custom icons can be added using inline SVGs.
+		category: 'common', // The category of the block.
+		attributes: { // Necessary for saving block content.
 			title: {
 				type: 'array',
 				source: 'children',
@@ -67,6 +66,12 @@
 			var focusedEditable = props.focus ? props.focus.editable || 'title' : null;
 			var alignment = props.attributes.alignment;
 			var attributes = props.attributes;
+			var facebookURL = props.attributes.facebookURL;
+			var twitterURL = props.attributes.twitterURL;
+			var instagramURL = props.attributes.instagramURL;
+			var linkedURL = props.attributes.linkedURL;
+			var emailAddress = props.attributes.emailAddress;
+
 			var onSelectImage = ( media ) => {
 				props.setAttributes( {
 					mediaURL: media.url,
@@ -79,18 +84,12 @@
 				} );
 			};
 
-			var facebookURL = props.attributes.facebookURL;
-			var twitterURL = props.attributes.twitterURL;
-			var instagramURL = props.attributes.instagramURL;
-			var linkedURL = props.attributes.linkedURL;
-			var emailAddress = props.attributes.emailAddress;
-
 			function onChangeAlignment( newAlignment ) {
 				props.setAttributes( { alignment: newAlignment } );
 			}
 
 			return [
-				!! focus && el(
+				!! focus && el( // Display controls when the block is clicked on.
 					blocks.BlockControls,
 					{ key: 'controls' },
 					el(
@@ -122,10 +121,10 @@
 				!! focus && el(
 					blocks.InspectorControls,
 					{ key: 'inspector' },
-					el( 'div', { className: 'components-block-description' },
+					el( 'div', { className: 'components-block-description' }, // A brief description of our block in the inspector.
 						el( 'p', {}, i18n.__( 'Add links to your social media profiles.' ) ),
 					),
-					el( 'h2', {}, i18n.__( 'Social Media Links' ) ),
+					el( 'h2', {}, i18n.__( 'Social Media Links' ) ), // A title for our social media link options.
 					el(
 						TextControl,
 						{
