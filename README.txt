@@ -48,6 +48,7 @@ A: Yes, the block will work and transfer between themes.
 == Screenshots ==
 
 1. The Organic Profile Block within the Gutenberg editor.
+2. The Organic Profile Block on the front-end of the Origin Theme from Organic Themes.
 
 == Changelog ==
 
