@@ -43,8 +43,6 @@ A: Select the block, and within the 'Block' section on the right you can add lin
 
 A: Yes, the block will work and transfer between themes.
 
-= Q: How can I get widgets to group together into a single page section? =
-
 == Screenshots ==
 
 1. The Organic Profile Block within the Gutenberg editor.
