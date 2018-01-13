@@ -1,15 +1,18 @@
 <?php
 /**
+ *
+ * @link https://organicthemes.com
+ * @since 1.0.0
+ * @package OPB
+ *
  * Plugin Name: Organic Profile Block
  * Plugin URI: https://organicthemes.com/
  * Description: The Profile Block is created for the Gutenberg content editor. It displays a profile section with an image, name, subtitle, bio and personal social media links. It's perfect for author biographies, personal profiles, or staff pages.
- * Author: itsdavidmorgan
- * Author URI: http://dav.idmorgan.com/
+ * Author: Organic Themes
+ * Author URI: https://organicthemes.com/
  * Version: 1.0.0
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- *
- * @package OPB
  */
 
 // Exit if accessed directly.
