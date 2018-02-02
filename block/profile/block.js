@@ -1,9 +1,9 @@
-( function( blocks, i18n, element ) {
+( function( blocks, components, i18n, element ) {
 	var el = element.createElement;
 	var children = blocks.source.children;
 	var BlockControls = wp.blocks.BlockControls;
 	var AlignmentToolbar = wp.blocks.AlignmentToolbar;
-	var MediaUploadButton = wp.blocks.MediaUploadButton;
+	var MediaUpload = wp.blocks.MediaUpload;
 	var InspectorControls = wp.blocks.InspectorControls;
 	var TextControl = wp.blocks.InspectorControls.TextControl;
 
@@ -35,9 +35,6 @@
 				source: 'attribute',
 				selector: 'img',
 				attribute: 'src',
-			},
-			href: {
-				type: 'url',
 			},
 			alignment: {
 				type: 'string',
@@ -72,15 +69,10 @@
 			var linkedURL = props.attributes.linkedURL;
 			var emailAddress = props.attributes.emailAddress;
 
-			var onSelectImage = ( media ) => {
-				props.setAttributes( {
+			var onSelectImage = function( media ) {
+				return props.setAttributes( {
 					mediaURL: media.url,
 					mediaID: media.id,
-				} );
-			};
-			var onSetHref = ( value ) => {
-				props.setAttributes( {
-					href: value,
 				} );
 			};
 
@@ -101,20 +93,21 @@
 					),
 					el( 'div', { className: 'components-toolbar' },
 						el(
-							blocks.MediaUploadButton,
+							blocks.MediaUpload,
 							{
-								buttonProps: {
-									className: 'components-icon-button components-toolbar__control',
-									'aria-label': i18n.__( 'Edit image' ),
-								},
 								onSelect: onSelectImage,
-								onChange: onSetHref,
 								type: 'image',
-								url: attributes.href,
+								render: function( obj ) {
+									return el( components.Button, {
+										className: 'components-icon-button components-toolbar__control',
+										onClick: obj.open
+										},
+										el( 'svg', { className: 'dashicon dashicons-edit', width: '20', height: '20' },
+											el( 'path', { d: "M2.25 1h15.5c.69 0 1.25.56 1.25 1.25v15.5c0 .69-.56 1.25-1.25 1.25H2.25C1.56 19 1 18.44 1 17.75V2.25C1 1.56 1.56 1 2.25 1zM17 17V3H3v14h14zM10 6c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm3 5s0-6 3-6v10c0 .55-.45 1-1 1H5c-.55 0-1-.45-1-1V8c2 0 3 4 3 4s1-3 3-3 3 2 3 2z" } )
+										)
+									);
+								}
 							},
-							el( 'svg', { className: 'dashicon dashicons-edit', width: '20', height: '20' },
-								el( 'path', { d: "M2.25 1h15.5c.69 0 1.25.56 1.25 1.25v15.5c0 .69-.56 1.25-1.25 1.25H2.25C1.56 19 1 18.44 1 17.75V2.25C1 1.56 1.56 1 2.25 1zM17 17V3H3v14h14zM10 6c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm3 5s0-6 3-6v10c0 .55-.45 1-1 1H5c-.55 0-1-.45-1-1V8c2 0 3 4 3 4s1-3 3-3 3 2 3 2z" } )
-							)
 						)
 					)
 				),
@@ -186,20 +179,19 @@
 						className: attributes.mediaID ? 'organic-profile-image image-active' : 'organic-profile-image image-inactive',
 						style: attributes.mediaID ? { backgroundImage: 'url('+attributes.mediaURL+')' } : {}
 					},
-						el( blocks.MediaUploadButton, {
-							buttonProps: {
-								className: attributes.mediaID
-									? 'image-button'
-									: 'components-button button button-large',
-							},
+						el( blocks.MediaUpload, {
 							onSelect: onSelectImage,
 							type: 'image',
 							value: attributes.mediaID,
-						},
-							attributes.mediaID
-								? el( 'img', { src: attributes.mediaURL } )
-								: 'Upload Image'
-						),
+							render: function( obj ) {
+								return el( components.Button, {
+									className: attributes.mediaID ? 'image-button' : 'button button-large',
+									onClick: obj.open
+									},
+									! attributes.mediaID ? i18n.__( 'Upload Image' ) : el( 'img', { src: attributes.mediaURL } )
+								);
+							}
+						} )
 					),
 					el( 'div', {
 						className: 'organic-profile-content', style: { textAlign: alignment } },
@@ -353,6 +345,7 @@
 
 } )(
 	window.wp.blocks,
+	window.wp.components,
 	window.wp.i18n,
 	window.wp.element,
 );

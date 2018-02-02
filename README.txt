@@ -2,7 +2,7 @@
 Contributors: itsdavidmorgan, organicthemes
 Donate link: https://organicthemes.com
 Tags: gutenberg, blocks, custom block, profile, bio, biography, testimonial, social media, staff, author, employee, fontawesome, icons
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires at least: 4.8
 Tested up to: 4.9.1
 License: GPLv2 or later
@@ -49,6 +49,9 @@ A: Yes, the block will work and transfer between themes.
 2. The Organic Profile Block on the front-end of the Origin Theme from Organic Themes.
 
 == Changelog ==
+
+= 1.0.1 =
+* Updates to media upload button to account for Gutenberg changes
 
 = 1.0.0 =
 * Initial plugin release
