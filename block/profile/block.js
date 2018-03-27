@@ -1,6 +1,6 @@
 ( function( blocks, components, i18n, element ) {
 	var el = element.createElement;
-	var children = blocks.source.children;
+	var children = blocks.source ? blocks.source.children : null;
 	var BlockControls = wp.blocks.BlockControls;
 	var AlignmentToolbar = wp.blocks.AlignmentToolbar;
 	var MediaUpload = wp.blocks.MediaUpload;
