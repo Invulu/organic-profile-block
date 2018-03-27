@@ -347,5 +347,5 @@
 	window.wp.blocks,
 	window.wp.components,
 	window.wp.i18n,
-	window.wp.element,
+	window.wp.element
 );
