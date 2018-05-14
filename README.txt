@@ -2,7 +2,7 @@
 Contributors: itsdavidmorgan, organicthemes
 Donate link: https://organicthemes.com
 Tags: gutenberg, blocks, custom block, profile, bio, biography, testimonial, social media, staff, author, employee, fontawesome, icons
-Stable tag: 1.1
+Stable tag: 1.1.1
 Requires at least: 4.8
 Tested up to: 4.9.1
 License: GPLv2 or later
