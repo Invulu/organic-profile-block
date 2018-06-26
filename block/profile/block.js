@@ -1,11 +1,11 @@
-( function( blocks, components, i18n, element ) {
+( function( editor, components, i18n, element ) {
 	var el = element.createElement;
 	var registerBlockType = wp.blocks.registerBlockType;
-	var RichText = wp.blocks.RichText;
-	var BlockControls = wp.blocks.BlockControls;
-	var AlignmentToolbar = wp.blocks.AlignmentToolbar;
-	var MediaUpload = wp.blocks.MediaUpload;
-	var InspectorControls = wp.blocks.InspectorControls;
+	var RichText = wp.editor.RichText;
+	var BlockControls = wp.editor.BlockControls;
+	var AlignmentToolbar = wp.editor.AlignmentToolbar;
+	var MediaUpload = wp.editor.MediaUpload;
+	var InspectorControls = wp.editor.InspectorControls;
 	var TextControl = wp.components.TextControl;
 
 	registerBlockType( 'organic/profile-block', { // The name of our block. Must be a string with prefix. Example: my-plugin/my-custom-block.
@@ -326,7 +326,7 @@
 	} );
 
 } )(
-	window.wp.blocks,
+	window.wp.editor,
 	window.wp.components,
 	window.wp.i18n,
 	window.wp.element,
