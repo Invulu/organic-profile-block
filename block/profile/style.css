@@ -13,7 +13,7 @@
 	display: flex;
 	align-items: stretch;
 	background-color: #ffffff;
-	margin: 12px 0px;
+	margin: 32px 0px;
 	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
 }
 .wp-block-organic-profile-block .organic-profile-image {
@@ -30,7 +30,7 @@
 .wp-block-organic-profile-block .organic-profile-content {
 	width: 100%;
 	align-self: center;
-	padding: 18px;
+	padding: 36px;
 	box-sizing: border-box;
 }
 .wp-block-organic-profile-block .organic-profile-content h3 {

@@ -1,14 +1,14 @@
 === Organic Profile Block ===
 Contributors: itsdavidmorgan, organicthemes
 Donate link: https://organicthemes.com
-Tags: gutenberg, blocks, custom block, profile, bio, biography, testimonial, social media, staff, author, employee, fontawesome, icons
-Stable tag: 1.2
-Requires at least: 4.8
-Tested up to: 4.9.1
+Tags: gutenberg, block, blocks, custom block, profile, bio, biography, testimonial, social media, staff, author, employee, fontawesome, icons
+Stable tag: 1.3
+Requires at least: 4.9
+Tested up to: 5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The Organic Profile Block is a custom block for the Gutenberg editor. It displays author and staff biographies with an image and social media links.
+The Organic Profile Block is a custom block for the Gutenberg content editor. It displays a profile card with an image, name, title, biography, and social media links.
 
 == Description ==
 
@@ -50,8 +50,13 @@ A: Yes, the block will work and transfer between themes.
 
 == Changelog ==
 
+= 1.3 =
+* Updated for Gutenberg 4.2.0 compatibility
+* Added formatting support for name and title headings
+* Commenting and cleanup
+
 = 1.2 =
-* Updated blocks to editor for Gutenberg 3.1.0 compatibility
+* Updated for Gutenberg 3.1.0 compatibility
 
 = 1.1 =
 * Changed Editable fields to RichText fields

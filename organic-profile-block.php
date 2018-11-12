@@ -10,7 +10,7 @@
  * Description: The Profile Block is created for the Gutenberg content editor. It displays a profile section with an image, name, subtitle, bio and personal social media links. It's perfect for author biographies, personal profiles, or staff pages.
  * Author: Organic Themes
  * Author URI: https://organicthemes.com/
- * Version: 1.2
+ * Version: 1.3
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 // Plugin version.
 if ( ! defined( 'OPB_VERSION' ) ) {
-	define( 'OPB_VERSION', '1.2' );
+	define( 'OPB_VERSION', '1.3' );
 }
 
 if ( ! defined( 'OPB_NAME' ) ) {

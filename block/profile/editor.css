@@ -43,8 +43,11 @@
 .wp-block-organic-profile-block .organic-profile-content {
 	width: 60%;
 	align-self: center;
-	padding: 18px;
+	padding: 36px;
 	box-sizing: border-box;
+}
+.wp-block-organic-profile-block .organic-profile-content h5.editor-rich-text__tinymce {
+	color: rgba(0, 0, 0, 0.4);
 }
 .wp-block-organic-profile-block .organic-profile-social {
 	margin-top: 12px;
