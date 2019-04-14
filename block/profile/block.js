@@ -13,6 +13,10 @@
     description: i18n.__('A custom block for displaying personal profiles.'), // The description of our block.
     icon: 'businessman', // Dashicon icon for our block. Custom icons can be added using inline SVGs.
     category: 'common', // The category of the block.
+    supports: {
+      align: true,
+      alignWide: true
+    },
     attributes: { // Necessary for saving block content.
       title: {
         type: 'array',

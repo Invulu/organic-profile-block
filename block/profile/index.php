@@ -32,7 +32,7 @@ function organic_profile_block() {
 		plugins_url( 'block.js', __FILE__ ), // Block.js: We register the block here.
 		array( 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n', 'wp-editor' ), // Dependencies, defined above.
 		filemtime( plugin_dir_path( __FILE__ ) . 'block.js' ),
-		true
+		true // Load script in footer.
 	);
 
 	// Styles.

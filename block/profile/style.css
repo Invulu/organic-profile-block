@@ -69,3 +69,23 @@
 .wp-block-organic-profile-block .organic-profile-social .social-link:first-child {
 	border: none;
 }
+
+/************************************************
+*  Phone Grid
+************************************************/
+
+@media screen and (max-width: 767px) {
+
+	.wp-block-organic-profile-block {
+		flex-direction: column;
+	}
+	.wp-block-organic-profile-block .organic-profile-image {
+		background: none !important;
+		width: 100%;
+	}
+	.wp-block-organic-profile-block .organic-profile-image img {
+		opacity: 1;
+		margin: 0px auto;
+	}
+
+}
