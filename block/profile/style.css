@@ -22,6 +22,7 @@
 	background-size: cover;
 	background-position: center;
 	width: 60%;
+	overflow: hidden;
 }
 .wp-block-organic-profile-block .organic-profile-image img {
 	opacity: 0;
