@@ -27,7 +27,7 @@ function organic_profile_block() {
 	}
 
 	// Scripts.
-	wp_register_script(
+	wp_enqueue_script(
 		'organic-profile-block-script', // Handle.
 		plugins_url( 'block.js', __FILE__ ), // Block.js: We register the block here.
 		array( 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n', 'wp-editor' ), // Dependencies, defined above.
@@ -57,11 +57,14 @@ function organic_profile_block() {
 
 	// Here we actually register the block with WP, again using our namespacing.
 	// We also specify the editor script to be used in the Gutenberg interface.
-	register_block_type( 'profile/block', array(
-		'editor_script' => 'organic-profile-block-script',
-		'editor_style'  => 'organic-profile-block-editor-style',
-		'style'         => 'organic-profile-block-frontend-style',
-	) );
+	register_block_type(
+		'profile/block',
+		array(
+			'editor_script' => 'organic-profile-block-script',
+			'editor_style'  => 'organic-profile-block-editor-style',
+			'style'         => 'organic-profile-block-frontend-style',
+		)
+	);
 
 } // End function organic_profile_block().
 

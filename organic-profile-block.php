@@ -1,16 +1,19 @@
 <?php
 /**
  *
+ * Adds a profile block to the WordPress 5 Gutenberg block editor.
+ *
  * @link https://organicthemes.com
  * @since 1.0.0
  * @package OPB
  *
+ * @wordpress-plugin
  * Plugin Name: Organic Profile Block
  * Plugin URI: https://organicthemes.com/
  * Description: The Profile Block is created for the Gutenberg content editor. It displays a profile section with an image, name, subtitle, bio and personal social media links. It's perfect for author biographies, personal profiles, or staff pages.
  * Author: Organic Themes
  * Author URI: https://organicthemes.com/
- * Version: 1.3.1
+ * Version: 1.4.1
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -27,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 // Plugin version.
 if ( ! defined( 'OPB_VERSION' ) ) {
-	define( 'OPB_VERSION', '1.3.1' );
+	define( 'OPB_VERSION', '1.4.1' );
 }
 
 if ( ! defined( 'OPB_NAME' ) ) {
@@ -45,4 +48,4 @@ if ( ! defined( 'OPB_URL' ) ) {
 /**
  * BLOCK: Profile Block.
  */
-require_once( OPB_DIR . '/block/profile/index.php' );
+require_once OPB_DIR . '/block/profile/index.php';

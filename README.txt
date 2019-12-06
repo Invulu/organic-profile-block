@@ -2,9 +2,9 @@
 Contributors: itsdavidmorgan, organicthemes
 Donate link: https://organicthemes.com
 Tags: gutenberg, block, blocks, custom block, profile, bio, biography, testimonial, social media, staff, author, employee, fontawesome, icons
-Stable tag: 1.3.1
+Stable tag: 1.4.1
 Requires at least: 4.9
-Tested up to: 5.0
+Tested up to: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,9 @@ The Organic Profile Block is a custom block for the Gutenberg content editor. It
 
 == Description ==
 
-The Organic Profile Block is designed to work with the [Gutenberg editor](https://wordpress.org/plugins/gutenberg/ "Gutenberg Plugin"). This custom block is designed to display personal profiles. It includes options to add a profile image, name, title, biography, and social media links. The social media options include icon links to personal profiles for Facebook, Twitter, Instagram, LinkedIn, and email. The profile block is an excellent solution for creating author profiles on posts, staff or employee pages, and testimonials.
+The Organic Profile Block is designed to work with the WordPress 5 block editor and [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/ "Gutenberg Plugin"). This custom block is designed to display personal profiles. It includes options to add a profile image, name, title, biography, and social media links. The social media options include icon links to personal profiles for Facebook, Twitter, Instagram, LinkedIn, and email. The profile block is an excellent solution for creating author profiles on posts, staff or employee pages, and testimonials.
+
+Additionally, this plugin is a great reference for budding WordPress block developers. Since WordPress blocks are developed in Javascript, creating a block can be intimidating for WordPress developers more familiar with PHP, HTML, and CSS. That's why we developed the Profile Block using the Javascript ES5 language, which does not require the use of a compiler to edit the code. For more information, please refer to our [How To Create A Custom Block](https://organicthemes.com/create-custom-block-wordpress-gutenberg/ "Create Custom Block") article.
 
 **Contribute:**
 
@@ -49,6 +51,15 @@ A: Yes, the block will work and transfer between themes.
 2. The Organic Profile Block on the front-end of the Origin Theme from Organic Themes.
 
 == Changelog ==
+
+= 1.4.1 =
+* Fixed social media links from breaking on reload
+
+= 1.4 =
+* Fixed attribute issues that resulted in block breaking on editor reload
+
+= 1.3.2 =
+* WordPress 5.3 compatibility updates
 
 = 1.3.1 =
 * Mobile style updates

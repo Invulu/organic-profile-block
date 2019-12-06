@@ -1,16 +1,18 @@
 (function (blocks, editor, components, i18n, element) {
-  var el = wp.element.createElement
-  var registerBlockType = wp.blocks.registerBlockType
-  var RichText = wp.editor.RichText
-  var BlockControls = wp.editor.BlockControls
-  var AlignmentToolbar = wp.editor.AlignmentToolbar
-  var MediaUpload = wp.editor.MediaUpload
-  var InspectorControls = wp.editor.InspectorControls
+  var __ = i18n.__
+  var el = element.createElement
+  var registerBlockType = blocks.registerBlockType
+  var RichText = editor.RichText
+  var BlockControls = editor.BlockControls
+  var AlignmentToolbar = editor.AlignmentToolbar
+  var MediaUpload = editor.MediaUpload
+  var InspectorControls = editor.InspectorControls
+  var PanelBody = components.PanelBody
   var TextControl = components.TextControl
 
   registerBlockType('organic/profile-block', { // The name of our block. Must be a string with prefix. Example: my-plugin/my-custom-block.
-    title: i18n.__('Profile'), // The title of our block.
-    description: i18n.__('A custom block for displaying personal profiles.'), // The description of our block.
+    title: __('Profile'), // The title of our block.
+    description: __('A custom block for displaying personal profiles.'), // The description of our block.
     icon: 'businessman', // Dashicon icon for our block. Custom icons can be added using inline SVGs.
     category: 'common', // The category of the block.
     supports: {
@@ -29,10 +31,15 @@
         selector: 'h5'
       },
       bio: {
-        type: 'array',
-        source: 'children',
-        selector: 'p'
+        type: 'string',
+        source: 'html',
+        selector: '.organic-profile-bio'
       },
+      // bio: {
+      //   type: 'array',
+      //   source: 'children',
+      //   selector: '.organic-profile-bio'
+      // },
       mediaID: {
         type: 'number'
       },
@@ -47,30 +54,25 @@
         default: 'center'
       },
       facebookURL: {
-        type: 'url'
+        type: 'string'
       },
       twitterURL: {
-        type: 'url'
+        type: 'string'
       },
       instagramURL: {
-        type: 'url'
+        type: 'string'
       },
       linkedURL: {
-        type: 'url'
+        type: 'string'
       },
       emailAddress: {
-        type: 'text'
+        type: 'string'
       }
     },
 
     edit: function (props) {
       var attributes = props.attributes
       var alignment = props.attributes.alignment
-      var facebookURL = props.attributes.facebookURL
-      var twitterURL = props.attributes.twitterURL
-      var instagramURL = props.attributes.instagramURL
-      var linkedURL = props.attributes.linkedURL
-      var emailAddress = props.attributes.emailAddress
 
       var onSelectImage = function (media) {
         return props.setAttributes({
@@ -108,53 +110,48 @@
           })
         ),
         el(InspectorControls, { key: 'inspector' }, // Display the block options in the inspector panel.
-          el(components.PanelBody, {
-            title: i18n.__('Social Media Links'),
+          el(PanelBody, {
+            title: __('Social Media Links'),
             className: 'block-social-links',
             initialOpen: true
           },
-          el('p', {}, i18n.__('Add links to your social media profiles.')),
+          el('p', {}, __('Add links to your social media profiles.')),
           // Facebook social media text field option.
           el(TextControl, {
-            type: 'url',
-            label: i18n.__('Facebook URL'),
-            value: facebookURL,
+            label: __('Facebook URL'),
+            value: attributes.facebookURL,
             onChange: function (newFacebook) {
               props.setAttributes({ facebookURL: newFacebook })
             }
           }),
           // Twitter social media text field option.
           el(TextControl, {
-            type: 'url',
-            label: i18n.__('Twitter URL'),
-            value: twitterURL,
+            label: __('Twitter URL'),
+            value: attributes.twitterURL,
             onChange: function (newTwitter) {
               props.setAttributes({ twitterURL: newTwitter })
             }
           }),
           // Instagram social media text field option.
           el(TextControl, {
-            type: 'url',
-            label: i18n.__('Instagram URL'),
-            value: instagramURL,
+            label: __('Instagram URL'),
+            value: attributes.instagramURL,
             onChange: function (newInstagram) {
               props.setAttributes({ instagramURL: newInstagram })
             }
           }),
           // LinkedIn social media text field option.
           el(TextControl, {
-            type: 'url',
-            label: i18n.__('LinkedIn URL'),
-            value: linkedURL,
+            label: __('LinkedIn URL'),
+            value: attributes.linkedURL,
             onChange: function (newLinkedIn) {
               props.setAttributes({ linkedURL: newLinkedIn })
             }
           }),
           // Email address text field option.
           el(TextControl, {
-            type: 'text',
-            label: i18n.__('Email Address'),
-            value: emailAddress,
+            label: __('Email Address'),
+            value: attributes.emailAddress,
             onChange: function (newEmail) {
               props.setAttributes({ emailAddress: newEmail })
             }
@@ -174,13 +171,13 @@
                 className: attributes.mediaID ? 'image-button' : 'button button-large',
                 onClick: obj.open
               },
-              !attributes.mediaID ? i18n.__('Upload Image') : el('img', { src: attributes.mediaURL })
+              !attributes.mediaID ? __('Upload Image') : el('img', { src: attributes.mediaURL })
               )
             }
           })
           ),
           el('div', { className: 'organic-profile-content', style: { textAlign: alignment } },
-            el(RichText, {
+            attributes.title && el(RichText, {
               key: 'editable',
               tagName: 'h3',
               placeholder: 'Profile Name',
@@ -190,9 +187,9 @@
                 props.setAttributes({ title: newTitle })
               }
             }),
-            el(RichText, {
+            attributes.subtitle && el(RichText, {
               tagName: 'h5',
-              placeholder: i18n.__('Subtitle'),
+              placeholder: __('Subtitle'),
               keepPlaceholderOnFocus: true,
               value: attributes.subtitle,
               onChange: function (newSubtitle) {
@@ -200,9 +197,10 @@
               }
             }),
             el(RichText, {
-              key: 'editable',
+              className: 'organic-profile-bio',
+              // key: 'editable',
               tagName: 'p',
-              placeholder: i18n.__('Write a brief bio...'),
+              placeholder: __('Write a brief bio...'),
               keepPlaceholderOnFocus: true,
               value: attributes.bio,
               onChange: function (newBio) {
@@ -211,34 +209,35 @@
             }),
             el('div', { className: 'organic-profile-social' },
               attributes.facebookURL && el('a', {
-                className: 'social-link',
+                className: 'social-link facebook-link',
                 href: attributes.facebookURL,
                 target: '_blank'
               },
               el('i', { className: 'fa fa-facebook' })
               ),
               attributes.twitterURL && el('a', {
-                className: 'social-link',
+                className: 'social-link twitter-link',
                 href: attributes.twitterURL,
                 target: '_blank'
               },
               el('i', { className: 'fa fa-twitter' })
               ),
               attributes.instagramURL && el('a', {
-                className: 'social-link',
+                className: 'social-link instagram-link',
                 href: attributes.instagramURL,
                 target: '_blank'
               },
               el('i', { className: 'fa fa-instagram' })
               ),
-              attributes.linkedURL && el('a', { className: 'social-link',
+              attributes.linkedURL && el('a', {
+                className: 'social-link linkedin-link',
                 href: attributes.linkedURL,
                 target: '_blank'
               },
               el('i', { className: 'fa fa-linkedin' })
               ),
               attributes.emailAddress && el('a', {
-                className: 'social-link',
+                className: 'social-link email-link',
                 href: 'mailto:' + attributes.emailAddress,
                 target: '_blank'
               },
@@ -253,63 +252,67 @@
     save: function (props) {
       var attributes = props.attributes
       var alignment = props.attributes.alignment
-      var facebookURL = props.attributes.facebookURL
-      var twitterURL = props.attributes.twitterURL
-      var instagramURL = props.attributes.instagramURL
-      var linkedURL = props.attributes.linkedURL
-      var emailAddress = props.attributes.emailAddress
+      var imageClass = 'wp-image-' + props.attributes.mediaID
 
       return (
         el('div', { className: props.className },
-          el('div', { className: 'organic-profile-image', style: { backgroundImage: 'url(' + attributes.mediaURL + ')' } },
-            el('img', { src: attributes.mediaURL })
+          attributes.mediaURL && el('div', { className: 'organic-profile-image', style: { backgroundImage: 'url(' + attributes.mediaURL + ')' } },
+            el('figure', { class: imageClass },
+              el('img', { src: attributes.mediaURL, alt: __('Profile Image') })
+            )
           ),
-          el('div', { className: 'organic-profile-content', style: { textAlign: attributes.alignment } },
-            el(RichText.Content, {
+          el('div', { className: 'organic-profile-content', style: { textAlign: alignment } },
+            attributes.title && el(RichText.Content, {
               tagName: 'h3',
               value: attributes.title
             }),
-            el(RichText.Content, {
+            attributes.subtitle && el(RichText.Content, {
               tagName: 'h5',
               value: attributes.subtitle
             }),
             el(RichText.Content, {
+              className: 'organic-profile-bio',
               tagName: 'p',
               value: attributes.bio
             }),
             el('div', { className: 'organic-profile-social' },
               attributes.facebookURL && el('a', {
-                className: 'social-link',
+                className: 'social-link facebook-link',
                 href: attributes.facebookURL,
-                target: '_blank'
+                target: '_blank',
+                rel: 'noopener noreferrer'
               },
               el('i', { className: 'fa fa-facebook' })
               ),
               attributes.twitterURL && el('a', {
-                className: 'social-link',
+                className: 'social-link twitter-link',
                 href: attributes.twitterURL,
-                target: '_blank'
+                target: '_blank',
+                rel: 'noopener noreferrer'
               },
               el('i', { className: 'fa fa-twitter' })
               ),
               attributes.instagramURL && el('a', {
-                className: 'social-link',
+                className: 'social-link instagram-link',
                 href: attributes.instagramURL,
-                target: '_blank'
+                target: '_blank',
+                rel: 'noopener noreferrer'
               },
               el('i', { className: 'fa fa-instagram' })
               ),
               attributes.linkedURL && el('a', {
-                className: 'social-link',
+                className: 'social-link linkedin-link',
                 href: attributes.linkedURL,
-                target: '_blank'
+                target: '_blank',
+                rel: 'noopener noreferrer'
               },
               el('i', { className: 'fa fa-linkedin' })
               ),
               attributes.emailAddress && el('a', {
-                className: 'social-link',
+                className: 'social-link email-link',
                 href: 'mailto:' + attributes.emailAddress,
-                target: '_blank'
+                target: '_blank',
+                rel: 'noopener noreferrer'
               },
               el('i', { className: 'fa fa-envelope' })
               )
@@ -319,7 +322,6 @@
       )
     }
   })
-
 })(
   window.wp.blocks,
   window.wp.editor,
