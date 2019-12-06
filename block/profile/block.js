@@ -35,11 +35,6 @@
         source: 'html',
         selector: '.organic-profile-bio'
       },
-      // bio: {
-      //   type: 'array',
-      //   source: 'children',
-      //   selector: '.organic-profile-bio'
-      // },
       mediaID: {
         type: 'number'
       },
