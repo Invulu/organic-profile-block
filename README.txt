@@ -2,9 +2,9 @@
 Contributors: itsdavidmorgan, organicthemes
 Donate link: https://organicthemes.com
 Tags: gutenberg, block, blocks, custom block, profile, bio, biography, testimonial, social media, staff, author, employee, fontawesome, icons
-Stable tag: 1.4.1
+Stable tag: 1.5
 Requires at least: 4.9
-Tested up to: 5.4
+Tested up to: 5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,13 +16,15 @@ The Organic Profile Block is designed to work with the WordPress 5 block editor 
 
 Additionally, this plugin is a great reference for budding WordPress block developers. Since WordPress blocks are developed in Javascript, creating a block can be intimidating for WordPress developers more familiar with PHP, HTML, and CSS. That's why we developed the Profile Block using the Javascript ES5 language, which does not require the use of a compiler to edit the code. For more information, please refer to our [How To Create A Custom Block](https://organicthemes.com/create-custom-block-wordpress-gutenberg/ "Create Custom Block") article.
 
+A premium version of the block is included in the [Organic Blocks Bundle](https://organicthemes.com/blocks/ "Organic Blocks Bundle") plugin. The bundle includes 9 premium blocks for the Gutenberg editor. The premium Profile Block can display unlimited social media links, and features several more options for modifying the profile image size, colors, and style.
+
 **Contribute:**
 
 This plugin is open source software, and you may actively contribute on [Github](https://github.com/Invulu/organic-profile-block "Organic Profile Block Repository").
 
 == Installation & Setup ==
 
-Note: This plugin requires the Gutenberg plugin active.
+Note: This plugin requires the WordPress 5 block editor or the Gutenberg plugin active.
 
 1. Upload 'organic-profile-block' to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
