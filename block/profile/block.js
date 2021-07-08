@@ -88,7 +88,7 @@
               type: 'image',
               render: function (obj) {
                 return el(components.Button, {
-                  className: 'components-icon-button components-toolbar__control',
+                  className: 'components-toolbar-button has-icon',
                   onClick: obj.open
                 },
                 // Add Dashicon for media upload button.

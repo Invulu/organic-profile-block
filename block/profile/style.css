@@ -24,6 +24,9 @@
 	width: 60%;
 	overflow: hidden;
 }
+.wp-block-organic-profile-block .organic-profile-image figure {
+	margin: 0;
+}
 .wp-block-organic-profile-block .organic-profile-image img {
 	opacity: 0;
 	margin: -9999px;

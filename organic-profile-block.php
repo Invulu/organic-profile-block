@@ -9,10 +9,11 @@
  * @wordpress-plugin
  * Plugin Name: Organic Profile Block
  * Plugin URI: https://organicthemes.com/
- * Description: The Profile Block is created for the Gutenberg content editor. It displays a profile section with an image, name, subtitle, bio and personal social media links. It's perfect for author biographies, personal profiles, or staff pages.
+ * Description: The Profile Block is created for the Gutenberg block editor. It displays a profile section with an image, name, subtitle, bio and personal social media links. It's perfect for author biographies, personal profiles, or staff pages.
  * Author: Organic Themes
  * Author URI: https://organicthemes.com/
- * Version: 1.5.1
+ * Version: 1.5.2
+ * Requires at least: 5.0
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -30,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Plugin version.
 if ( ! defined( 'OPB_VERSION' ) ) {
-	define( 'OPB_VERSION', '1.5.1' );
+	define( 'OPB_VERSION', '1.5.2' );
 }
 
 if ( ! defined( 'OPB_NAME' ) ) {
@@ -65,8 +66,8 @@ function organic_profile_block_admin_notice_sale() {
 
 	<div data-dismissible="notice-organic-profile-block-sale-forever" class="notice updated is-dismissible">
 
-		<p><?php printf( wp_kses_post( '<a href="%1$s" target="_blank">Upgrade The Profile Block</a> and receive <a href="%2$s" target="_blank">8 Additional Premium Blocks</a> for the Gutenberg editor!', 'organic-profile-block' ), 'https://organicthemes.com/block/profile-block/', 'https://organicthemes.com/blocks/' ); ?></p>
-		<p><a class="button button-primary" href="https://organicthemes.com/blocks/" target="_blank"><?php esc_html_e( 'Get Blocks Bundle', 'organic-profile-block' ); ?></a></p>
+		<p><?php printf( wp_kses_post( '<a href="%1$s" target="_blank">Upgrade The Profile Block</a> and receive <a href="%2$s" target="_blank">12 Additional Premium Blocks</a> for the Gutenberg block editor!', 'organic-profile-block' ), 'https://organicthemes.com/block/profile-block/', 'https://organicthemes.com/blocks/' ); ?></p>
+		<p><a class="button button-primary" href="https://organicthemes.com/blocks/" target="_blank"><?php esc_html_e( 'Get WordPress Blocks', 'organic-profile-block' ); ?></a></p>
 
 	</div>
 
